@@ -44,6 +44,6 @@ class SensorsStation(val name: String) {
 
 
 fun main(argv: Array<String>) {
-    val station1 = SensorsStation("Station1");
-    //val station2 = SensorsStation("Station2");
+    val station1 = SensorsStation("Station1")
+    //val station2 = SensorsStation("Station2")
 }
