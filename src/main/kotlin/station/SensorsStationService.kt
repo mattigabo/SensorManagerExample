@@ -6,7 +6,7 @@ import rabbitmq.RabbitMQPublisher
 /**
  * Created by Matteo Gabellini on 27/09/2018.
  */
-class SensorsStation(val name: String) {
+class SensorsStationService(val name: String) {
 
     private val observationPeriod = 5000L
     private val sensorSimulationPeriod = 2000L
@@ -20,7 +20,7 @@ class SensorsStation(val name: String) {
     val publisher: RabbitMQPublisher
 
     init{
-        BrokerConnector.init("localhost", SensorsStation.EXCHANGE_NAME)
+        BrokerConnector.init("localhost", SensorsStationService.EXCHANGE_NAME)
         publisher = RabbitMQPublisher(BrokerConnector.INSTANCE)
 
         oxygenSensor = ObservableSensor(SimulatedSensor(SensorTypes.OXYGEN, sensorSimulationPeriod))
@@ -44,6 +44,6 @@ class SensorsStation(val name: String) {
 
 
 fun main(argv: Array<String>) {
-    val station1 = SensorsStation("Station1")
-    //val station2 = SensorsStation("Station2")
+    val station1 = SensorsStationService("Station1");
+    //val station2 = SensorsStationService("Station2");
 }
