@@ -5,10 +5,11 @@ import rabbitmq.BrokerConnector
 import rabbitmq.RabbitMQSubscriber
 import station.SensorsStation
 import java.time.LocalDateTime
-import kotlin.collections.HashMap
 
-
-class SensorManager{
+/**
+ * Created by Matteo Gabellini on 02/10/2018.
+ */
+class StationManager {
 
     val subscriber: RabbitMQSubscriber
     val stationsStorage: MutableMap<String, MutableMap<String, SensorValuesStorage>>
@@ -50,11 +51,11 @@ class SensorManager{
             stationsStorage.get(stationName)!!.get(sensorType)!!.store(record)
         }
     }
+
 }
 
-
 fun main(args: Array<String>) {
-    val sm = SensorManager()
+    val sm = StationManager()
     sm.addStation("Station1")
     Thread.sleep(6000)
 
