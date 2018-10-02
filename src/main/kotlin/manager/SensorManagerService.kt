@@ -3,7 +3,7 @@ package manager
 
 object SensorManager{
 
-    var stationManager = StationManager()
+    var stationManager = StationManager.INSTANCE
     //var restController = RestController(stationManager)
 }
 

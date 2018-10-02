@@ -3,21 +3,33 @@ package manager
 import com.rabbitmq.client.Consumer
 import rabbitmq.BrokerConnector
 import rabbitmq.RabbitMQSubscriber
-import station.SensorsStation
+import station.SensorsStationService
 import java.time.LocalDateTime
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Created by Matteo Gabellini on 02/10/2018.
  */
-class StationManager {
+class StationManager private constructor() {
 
     val subscriber: RabbitMQSubscriber
     val stationsStorage: MutableMap<String, MutableMap<String, SensorValuesStorage>>
 
     var storageLimit = 10
 
+    companion object {
+        lateinit var INSTANCE: StationManager
+        val isInitialized = AtomicBoolean()
+        fun init(){
+            if(!isInitialized.getAndSet(true)){
+                INSTANCE = StationManager();
+            }
+        }
+    }
+
+
     init{
-        BrokerConnector.init("localhost", SensorsStation.EXCHANGE_NAME)
+        BrokerConnector.init("localhost", SensorsStationService.EXCHANGE_NAME)
         subscriber = RabbitMQSubscriber(BrokerConnector.INSTANCE)
         stationsStorage = HashMap()
     }
@@ -55,7 +67,7 @@ class StationManager {
 }
 
 fun main(args: Array<String>) {
-    val sm = StationManager()
+    val sm = StationManager.INSTANCE
     sm.addStation("Station1")
     Thread.sleep(6000)
 
