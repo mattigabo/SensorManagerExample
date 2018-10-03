@@ -1,7 +1,10 @@
 package manager
 
+import org.springframework.boot.SpringApplication
+import spring.RestAdapter
 
-object SensorManager{
+
+class SensorManager{
 
     var stationManager = StationManager.INSTANCE
     //var restController = RestController(stationManager)
@@ -9,5 +12,5 @@ object SensorManager{
 
 
 fun main(args: Array<String>) {
-    SensorManager;
+    SpringApplication.run(RestAdapter::class.java, *args)
 }
