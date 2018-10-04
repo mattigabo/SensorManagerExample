@@ -1,13 +1,8 @@
 package manager
 
 
-object SensorManager{
+class SensorManager{
 
     var stationManager = StationManager.INSTANCE
     //var restController = RestController(stationManager)
-}
-
-
-fun main(args: Array<String>) {
-    SensorManager;
 }

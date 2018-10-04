@@ -17,14 +17,22 @@ class StationManager private constructor() {
 
     var storageLimit = 10
 
-    companion object {
+    /*companion object {
         lateinit var INSTANCE: StationManager
         val isInitialized = AtomicBoolean()
         fun init(){
             if(!isInitialized.getAndSet(true)){
-                INSTANCE = StationManager();
+                INSTANCE = StationManager()
             }
         }
+    }*/
+
+    private object GetInstance {
+        val INSTANCE = StationManager()
+    }
+
+    companion object {
+        val INSTANCE: StationManager by lazy { GetInstance.INSTANCE }
     }
 
 
