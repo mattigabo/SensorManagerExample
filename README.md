@@ -24,9 +24,9 @@ There are two type of services:
     - Get all station info (name + current sensors values)
         - **GET**: http://{hostname}:{port}/stations/
     - Get info of a specific station
-        - **GET**: http://{hostname}:{port}/stations/**station-name**
+        - **GET**: http://{hostname}:{port}/stations/**station_name**
     - Get the sensor values of a station
-        - **GET**: http://{hostname}:{port}/stations/**station-name**/**sensor-name**/ 
+        - **GET**: http://{hostname}:{port}/stations/**station_name**/**sensor_name**/ 
     
     
     
