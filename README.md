@@ -20,13 +20,13 @@ There are two type of services:
  - Offers a REST interface that can be used by a generic User Application:
     -  Add a new station, when this api is used the station manager add a listener to the value sended from the new station.  
     The name of thestation will be sended in the body of the message
-        - POST:http://{hostname}:{port}/addstation 
+        - **POST**: http://{hostname}:{port}/addstation 
     - Get all station info (name + current sensors values)
-        - GET:http://{hostname}:{port}/stations/
+        - **GET**: http://{hostname}:{port}/stations/
     - Get info of a specific station
-        - GET:http://{hostname}:{port}/stations/**station-name**
+        - **GET**: http://{hostname}:{port}/stations/**station-name**
     - Get the sensor values of a station
-        - GET:http://{hostname}:{port}/stations/**station-name**/**sensor-name**/ 
+        - **GET**: http://{hostname}:{port}/stations/**station-name**/**sensor-name**/ 
     
     
     
