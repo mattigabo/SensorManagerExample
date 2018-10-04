@@ -1,8 +1,8 @@
 package serviceboot
 
-import station.SensorsStationService
+import station.SensorStation
 
 fun main(argv: Array<String>) {
-    val station1 = SensorsStationService("Station1");
+    val station1 = SensorStation("Station1");
 }
 

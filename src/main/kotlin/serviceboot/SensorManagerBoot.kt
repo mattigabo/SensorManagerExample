@@ -1,8 +1,8 @@
 package serviceboot
 
-/**
- * Created by Matteo Gabellini on 02/10/2018.
- */
-fun main(args: Array<String>) {
+import manager.SensorManager
+import org.springframework.boot.SpringApplication
 
+fun main(args: Array<String>) {
+    SpringApplication.run(SensorManager::class.java, *args)
 }

@@ -1,4 +1,4 @@
 object SensorTypes {
-    val OXYGEN = "ontology"
+    val OXYGEN = "oxygen"
     val HUMIDITY = "humidity"
 }

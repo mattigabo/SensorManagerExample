@@ -3,13 +3,10 @@ package manager
 import com.rabbitmq.client.Consumer
 import rabbitmq.BrokerConnector
 import rabbitmq.RabbitMQSubscriber
-import station.SensorsStationService
+import station.SensorStation
 import java.time.LocalDateTime
 import java.util.concurrent.atomic.AtomicBoolean
 
-/**
- * Created by Matteo Gabellini on 02/10/2018.
- */
 class StationManager private constructor() {
 
     val subscriber: RabbitMQSubscriber
@@ -17,7 +14,7 @@ class StationManager private constructor() {
 
     var storageLimit = 10
 
-    /*companion object {
+    companion object {
         lateinit var INSTANCE: StationManager
         val isInitialized = AtomicBoolean()
         fun init(){
@@ -25,19 +22,11 @@ class StationManager private constructor() {
                 INSTANCE = StationManager()
             }
         }
-    }*/
-
-    private object GetInstance {
-        val INSTANCE = StationManager()
-    }
-
-    companion object {
-        val INSTANCE: StationManager by lazy { GetInstance.INSTANCE }
     }
 
 
     init{
-        BrokerConnector.init("localhost", SensorsStationService.EXCHANGE_NAME)
+        BrokerConnector.init("localhost", SensorStation.EXCHANGE_NAME)
         subscriber = RabbitMQSubscriber(BrokerConnector.INSTANCE)
         stationsStorage = HashMap()
     }

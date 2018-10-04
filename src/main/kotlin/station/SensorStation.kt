@@ -6,7 +6,7 @@ import rabbitmq.RabbitMQPublisher
 /**
  * Created by Matteo Gabellini on 27/09/2018.
  */
-class SensorsStationService(val name: String) {
+class SensorStation(val name: String) {
 
     private val observationPeriod = 5000L
     private val sensorSimulationPeriod = 2000L
@@ -20,7 +20,7 @@ class SensorsStationService(val name: String) {
     val publisher: RabbitMQPublisher
 
     init{
-        BrokerConnector.init("localhost", SensorsStationService.EXCHANGE_NAME)
+        BrokerConnector.init("localhost", SensorStation.EXCHANGE_NAME)
         publisher = RabbitMQPublisher(BrokerConnector.INSTANCE)
 
         oxygenSensor = ObservableSensor(SimulatedSensor(SensorTypes.OXYGEN, sensorSimulationPeriod))
