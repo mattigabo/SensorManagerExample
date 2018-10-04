@@ -41,9 +41,3 @@ class SensorsStationService(val name: String) {
         val EXCHANGE_NAME = "StationExchange"
     }
 }
-
-
-fun main(argv: Array<String>) {
-    val station1 = SensorsStationService("Station1");
-    //val station2 = SensorsStationService("Station2");
-}

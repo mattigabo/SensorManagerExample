@@ -65,27 +65,3 @@ class StationManager private constructor() {
     }
 
 }
-
-fun main(args: Array<String>) {
-    val sm = StationManager.INSTANCE
-    sm.addStation("Station1")
-    Thread.sleep(6000)
-
-    sm.getSensorValues("Station1", SensorTypes.OXYGEN)?.forEach {
-        println("Station 1 Sensor: Oxygen value:" + it.value + " recorded: " + it.time);
-    }
-
-
-    sm.addStation("Station2")
-    Thread.sleep(6000)
-
-
-    sm.getSensorValues("Station1", SensorTypes.OXYGEN)?.forEach {
-        println("Station 1 Sensor: Oxygen value:" + it.value + " recorded: " + it.time);
-    }
-
-    sm.getSensorValues("Station2", SensorTypes.OXYGEN)?.forEach {
-        println("Station 2 Sensor: Oxygen value:" + it.value + " recorded: " + it.time);
-    }
-
-}
